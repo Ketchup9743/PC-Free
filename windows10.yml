@@ -1,0 +1,19 @@
+version: "3"
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      VERSION: "10"
+      RAM_SIZE: "4G"
+      CPU_CORES: "2"
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "8006:8006"
+      - "3389:3389/tcp"
+    volumes:
+      - /tmp/docker-data:/mnt/disco1
+    devices:
+      - "/dev/kvm:/dev/kvm"
+    restart: always
